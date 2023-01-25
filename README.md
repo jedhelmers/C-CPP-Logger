@@ -72,5 +72,5 @@ Time formatting
 
 Usage
 ```
-gcc main.c logger.c -DLOG_FILENAME="pimp_logging.log"
+gcc main.c logger.c -DLOG_FILENAME="pimp_logging.log" -DLOG_TIME_FORMAT="%H:%M:%S"
 ```
