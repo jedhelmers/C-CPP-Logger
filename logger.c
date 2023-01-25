@@ -6,49 +6,13 @@
 #include <pthread.h>
 #include "stdbool.h"
 
-char* unsignedIntToLogTypeString(unsigned type){
-    switch (type)
-    {
-    case 0:
-        return (char *)"INFO";
-    case 1:
-        return (char *)"DEBUG";
-    case 2:
-        return (char *)"WARNING";
-    case 3:
-        return (char *)"ERROR";
-    case 4:
-        return (char *)"FATAL";
-    default:
-        return (char *)"DEBUG";
-    }
-}
-
-void SETUP_LOGGER() {}
-
-int shouldDisableLogging(unsigned tag) {
-    if(tag == 0 && DISABLE_INFO) {
-        return 1;
-    } else if(tag == 1 && DISABLE_DEBUG) {
-        return 1;
-    } else if(tag == 2 && DISABLE_WARNING) {
-        return 1;
-    } else if(tag == 3 && DISABLE_ERROR) {
-        return 1;
-    } else if(tag == 4 && DISABLE_FATAL) {
-        return 1;
-    }
-    return 0;
-}
-
 pthread_mutex_t logger_mutex = PTHREAD_MUTEX_INITIALIZER;
 
 void LOG(unsigned tag, const char* file, unsigned line, const char* message) {
-    if (shouldDisableLogging(tag)) {
-        return;
-    }
+    // Disable log based on log-type.
+    DISABLE_HANDLER(tag);
 
-    // pthread_mutex_t logger_mutex = PTHREAD_MUTEX_INITIALIZER;
+    // Lock log file.
     pthread_mutex_lock(&logger_mutex);
 
     FILE *fp;
@@ -62,12 +26,16 @@ void LOG(unsigned tag, const char* file, unsigned line, const char* message) {
     char buffer[26];
     struct tm* tm_info;
 
+    // Get and format time.
     timer = time(NULL);
     tm_info = localtime(&timer);
     strftime(buffer, 26, "%Y-%m-%d %H:%M:%S", tm_info);
     if (t[strlen(t)-1] == '\n') t[strlen(t)-1] = '\0';
 
-    fprintf(fp, "%s [%s]: %s:%d %s\n", buffer, unsignedIntToLogTypeString(tag), file, line, message);
+    // Write to file.
+    fprintf(fp, "%s [%s]: %s:%d %s\n", buffer, CONVERT_INT_TO_NAME(tag), file, line, message);
     fclose(fp);
+
+    // Unlock log file.
     pthread_mutex_unlock(&logger_mutex);
 }
