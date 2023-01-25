@@ -44,6 +44,7 @@
 #define DISABLE_FATAL 0
 
 #define FILENAME "sample.log"
+#define TIME_FORMAT "%Y-%m-%d %H:%M:%S"
 
 #define Q(x) #x
 #define QUOTE(x) Q(x)
@@ -51,6 +52,11 @@
 #ifdef LOG_FILENAME
     #undef FILENAME
     #define FILENAME QUOTE(LOG_FILENAME)
+#endif
+
+#ifdef LOG_TIME_FORMAT
+    #undef TIME_FORMAT
+    #define TIME_FORMAT QUOTE(LOG_TIME_FORMAT)
 #endif
 
 #ifdef LOG_DISABLE_INFO
