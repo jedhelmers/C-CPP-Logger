@@ -3,6 +3,17 @@ Dead-simple logger for C/C++
 
 I wanted to create a simple, thread-safe, single header-file logger for C/C++. It's easy to use. Easy to modify.
 
+## Usage
+```
+#include "logger.h"
+
+int main() {
+  LOG(INFO, (char*)"Pimps up. Hoes down.");
+  
+  return 0;
+}
+```
+
 ## Flags
 Logs can be disabled per-env using the following disable flags:
 | Flag | Info |
