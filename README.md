@@ -14,9 +14,5 @@ Logs can be disabled per-env using the following disable flags:
 | -DLOG_DISABLE_FATAL | Disable FATAL logging. |
 
 | Flag | Info |
+|---|---|
 | -DLOG_FILENAME | Set filename.log |
-
-| Syntax | Description |
-| --- | ----------- |
-| Header | Title |
-| Paragraph | Text |
