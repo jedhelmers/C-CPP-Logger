@@ -45,5 +45,5 @@ gcc main.c logger.c -DLOG_DISABLE_INFO -DLOG_DISABLE_DEBUG
 
 Usage
 ```
-gcc main.c logger.c -DLOG_FILENAME
+gcc main.c logger.c -DLOG_FILENAME="pimp_logging.log"
 ```
