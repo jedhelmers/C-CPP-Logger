@@ -15,12 +15,11 @@ int main() {
 ```
 
 Log types
--INFO
--DEBUG
--WARNING
--ERROR
--FATAL
-
+- INFO
+- DEBUG
+- WARNING
+- ERROR
+- FATAL
 
 To run
 ```
