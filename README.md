@@ -42,6 +42,7 @@ gcc main.c logger.c -DLOG_DISABLE_INFO -DLOG_DISABLE_DEBUG
 | Flag | Info |
 |---|---|
 | -DLOG_FILENAME | Set filename.log |
+| -DLOG_TIME_FORMAT | Set time format. |
 
 Usage
 ```
