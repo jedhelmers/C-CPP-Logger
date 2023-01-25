@@ -14,6 +14,14 @@ int main() {
 }
 ```
 
+Log types
+-INFO
+-DEBUG
+-WARNING
+-ERROR
+-FATAL
+
+
 To run
 ```
 gcc main.c logger.c
