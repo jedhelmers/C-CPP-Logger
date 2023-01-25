@@ -1,6 +1,36 @@
 #ifndef LOGGER_H
 #define LOGGER_H
 
+// #define INFO 0
+// #define DEBUG 1
+// #define WARNING 2
+// #define ERROR 3
+// #define FATAL 4
+
+#define DISABLE_HANDLER(tag) \
+({ \
+    int out = 0; \
+    if (tag == 0) { out = 1; } \
+    if (tag == 1) { out = 1; } \
+    if (tag == 2) { out = 1; } \
+    if (tag == 3) { out = 1; } \
+    if (tag == 4) { out = 1; } \
+    out; \
+})
+
+#define CONVERT_INT_TO_NAME(name_int) \
+({ \
+    char* name; \
+    if (name_int == 0) { name = "INFO"; } \
+    else if (name_int == 1) { name = "DEBUG"; } \
+    else if (name_int == 2) { name = "WARNING"; } \
+    else if (name_int == 3) { name = "ERROR"; } \
+    else if (name_int == 4) { name = "FATAL"; } \
+    name; \
+})
+
+// #define LOGG(TYPE, FORMAT, ...) printf(FORMAT, CONVERTTONAME(TYPE), __VA_ARGS__)
+
 #define INFO 0, __FILE__, __LINE__
 #define DEBUG 1, __FILE__, __LINE__
 #define WARNING 2, __FILE__, __LINE__
@@ -49,7 +79,5 @@
 #endif
 
 void LOG(unsigned tag, const char* file, unsigned line, const char* message);
-
-void SETUP_LOGGER();
 
 #endif
