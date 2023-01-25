@@ -29,7 +29,7 @@ void LOG(unsigned tag, const char* file, unsigned line, const char* message) {
     // Get and format time.
     timer = time(NULL);
     tm_info = localtime(&timer);
-    strftime(buffer, 26, "%Y-%m-%d %H:%M:%S", tm_info);
+    strftime(buffer, 26, TIME_FORMAT, tm_info);
     if (t[strlen(t)-1] == '\n') t[strlen(t)-1] = '\0';
 
     // Write to file.
