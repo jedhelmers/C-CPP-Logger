@@ -13,6 +13,10 @@ int main() {
   return 0;
 }
 ```
+Output
+```
+2023-01-25 13:47:23 [INFO]: main.c:4 Pimps up. Hoes down.
+```
 
 ## Flags
 Logs can be disabled per-env using the following disable flags:
