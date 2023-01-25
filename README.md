@@ -45,7 +45,7 @@ gcc main.c logger.c -DLOG_DISABLE_INFO -DLOG_DISABLE_DEBUG
 | -DLOG_TIME_FORMAT | Set time format. |
 
 Time formatting
-| Specifier |	Replaced By	Example |
+| Specifier |	Replaced By	| Example |
 |---|---|---|
 | %a |	Abbreviated weekday name | Sun |
 | %A |	Full weekday name | Sunday |
