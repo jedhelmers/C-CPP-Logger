@@ -13,6 +13,12 @@ int main() {
   return 0;
 }
 ```
+
+To run
+```
+gcc main.c logger.c
+```
+
 Output
 ```
 2023-01-25 13:47:23 [INFO]: main.c:4 Pimps up. Hoes down.
@@ -28,6 +34,16 @@ Logs can be disabled per-env using the following disable flags:
 | -DLOG_DISABLE_ERROR | Disable ERROR logging. |
 | -DLOG_DISABLE_FATAL | Disable FATAL logging. |
 
+Usage
+```
+gcc main.c logger.c -DLOG_DISABLE_INFO -DLOG_DISABLE_DEBUG
+```
+
 | Flag | Info |
 |---|---|
 | -DLOG_FILENAME | Set filename.log |
+
+Usage
+```
+gcc main.c logger.c -DLOG_FILENAME
+```
