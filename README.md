@@ -6,7 +6,7 @@ I wanted to create a simple, thread-safe, single header-file logger for C/C++. I
 ## Flags
 Logs can be disabled per-env using the following disable flags:
 | Flag | Info |
-|______|______|
+|---|---|
 | -DLOG_DISABLE_INFO | Disable INFO logging. |
 | -DLOG_DISABLE_DEBUG | Disable DEBUG logging. |
 | -DLOG_DISABLE_WARNING | Disable WARNING logging. |
@@ -15,3 +15,8 @@ Logs can be disabled per-env using the following disable flags:
 
 | Flag | Info |
 | -DLOG_FILENAME | Set filename.log |
+
+| Syntax | Description |
+| --- | ----------- |
+| Header | Title |
+| Paragraph | Text |
